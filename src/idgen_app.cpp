@@ -1,8 +1,9 @@
 #include "idgen_app.hpp"
 #include "version.hpp"
 #include <be/core/version.hpp>
-#include <be/core/id.hpp>
+#include <be/core/byte_order.hpp>
 #include <be/util/fnv.hpp>
+#include <be/util/base64_encode.hpp>
 #include <be/cli/cli.hpp>
 #include <iostream>
 #include <sstream>
@@ -77,6 +78,18 @@ S escape_xml_attribute(const S& input) {
          }
          out.append(1, "0123456789"[c % 10]);
          out.append(1, ';');
+      } else if (c > '~') {
+         out.append("&#");
+         if (c >= 100) {
+            out.append(1, "0123456789"[c / 100]);
+            c %= 100;
+         }
+         if (c >= 10) {
+            out.append(1, "0123456789"[c / 10]);
+            c %= 10;
+         }
+         out.append(1, "0123456789"[c]);
+         out.append(1, ';');
       } else switch (c) {
          case '"':  out.append("&quot;"); break;
          case '\'': out.append("&apos;"); break;
@@ -106,7 +119,7 @@ S escape_xml_pcdata(const S& input) {
          }
          out.append(1, "0123456789"[c]);
          out.append(1, ';');
-      } else if (c > '`') {
+      } else if (c > '~') {
          out.append("&#");
          if (c >= 100) {
             out.append(1, "0123456789"[c / 100]);
@@ -403,12 +416,12 @@ void IdGenApp::process_(const S& input) {
          while ((bits >> 1) >= bits_) {
             bits >>= 1;
             raw = raw ^ (raw >> bits);
-            raw &= (1 << bits) - 1;
+            raw &= ~U64(0) >> (64 - bits);
          }
 
          if (bits > bits_) {
             raw = raw ^ (raw >> bits_);
-            raw &= (1 << bits_) - 1;
+            raw &= ~U64(0) >> (64 - bits);
          }
       }
 
@@ -449,11 +462,15 @@ void IdGenApp::process_(const S& input) {
          break;
       }
 
-      case Type::base64:
-         // TODO
-         //serialized = "base64 not implemented!";
-         serialized = get_canonical_id_string(Id(hash));
+      case Type::base64: {
+         std::size_t bytes = (bits_ + 7) / 8;
+         hash = bo::to_big(hash);
+         UC data[sizeof(hash)];
+         memcpy(data, &hash, sizeof(hash));
+         Buf<const UC> buf = tmp_buf(data);
+         serialized.assign(util::base64_encode(sub_buf(buf, sizeof(hash) - bytes)));
          break;
+      }
 
       default:
          serialized = "Unknown Type";
@@ -485,7 +502,24 @@ void IdGenApp::process_(const S& input) {
          break;
 
       case Format::xml:
-         std::cout << "<id name=";
+         std::cout << "<id";
+         if (mode_ != Mode::fnv1a) {
+            std::cout << " mode=";
+            std::cout << escape_xml_attribute(mode_name(mode_));
+         }
+         if (use_basis_) {
+            std::cout << " basis=";
+            std::ostringstream oss;
+            oss << std::hex << "0x" << basis_;
+            std::cout << escape_xml_attribute(oss.str());
+         }
+         if (bits_ != 64) {
+            std::cout << " size=";
+            std::cout << escape_xml_attribute(std::to_string(bits_));
+         }
+         std::cout << " format=";
+         std::cout << escape_xml_attribute(type_name(type_));
+         std::cout << " name=";
          std::cout << escape_xml_attribute(input);
          std::cout << ">";
          std::cout << escape_xml_pcdata(serialized);

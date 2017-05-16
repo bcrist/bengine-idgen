@@ -6,7 +6,7 @@
 
 #define BE_IDGEN_VERSION_MAJOR 0
 #define BE_IDGEN_VERSION_MINOR 2
-#define BE_IDGEN_VERSION_REV 1
+#define BE_IDGEN_VERSION_REV 2
 
 /*!! include('common/version', 'BE_IDGEN', 'IdGen') !! 6 */
 /* ################# !! GENERATED CODE -- DO NOT MODIFY !! ################# */

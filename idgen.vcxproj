@@ -52,10 +52,23 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\format.cpp" />
     <ClCompile Include="src\idgen.cpp" />
+    <ClCompile Include="src\idgen_app.cpp" />
+    <ClCompile Include="src\mode.cpp" />
+    <ClCompile Include="src\type.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\format.hpp" />
+    <ClInclude Include="include\idgen_app.hpp" />
+    <ClInclude Include="include\mode.hpp" />
+    <ClInclude Include="include\type.hpp" />
     <ClInclude Include="include\version.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="meta\format.lua" />
+    <None Include="meta\mode.lua" />
+    <None Include="meta\type.lua" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

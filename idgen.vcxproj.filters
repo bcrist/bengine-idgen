@@ -9,15 +9,53 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\idgen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <Filter Include="Meta-Source Files">
+      <UniqueIdentifier>{765ef92d-51ad-44a3-a5e7-49be2f16dd10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\version.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\idgen_app.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\format.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\mode.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\type.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\idgen_app.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\idgen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\format.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\type.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="meta\mode.lua">
+      <Filter>Meta-Source Files</Filter>
+    </None>
+    <None Include="meta\format.lua">
+      <Filter>Meta-Source Files</Filter>
+    </None>
+    <None Include="meta\type.lua">
+      <Filter>Meta-Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

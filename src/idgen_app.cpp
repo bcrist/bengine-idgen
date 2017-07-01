@@ -287,20 +287,20 @@ IdGenApp::IdGenApp(int argc, char** argv) {
          proc.describe(std::cout, ids::cli_describe_section_license);
       }
 
-   } catch (const cli::OptionException& e) {
+   } catch (const cli::OptionError& e) {
       status_ = 2;
       be_error() << S(e.what())
          & attr(ids::log_attr_index) << e.raw_position()
          & attr(ids::log_attr_argument) << S(e.argument())
          & attr(ids::log_attr_option) << S(e.option())
          | default_log();
-   } catch (const cli::ArgumentException& e) {
+   } catch (const cli::ArgumentError& e) {
       status_ = 2;
       be_error() << S(e.what())
          & attr(ids::log_attr_index) << e.raw_position()
          & attr(ids::log_attr_argument) << S(e.argument())
          | default_log();
-   } catch (const Fatal& e) {
+   } catch (const FatalTrace& e) {
       status_ = 2;
       be_error() << "Fatal error while parsing command line!"
          & attr(ids::log_attr_message) << S(e.what())

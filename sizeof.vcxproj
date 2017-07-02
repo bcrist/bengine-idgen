@@ -11,10 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>idgen</ProjectName>
-    <RootNamespace>idgen</RootNamespace>
+    <ProjectName>sizeof</ProjectName>
+    <RootNamespace>sizeof</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
-    <ProjectGuid>{F0644067-51CA-447F-BD18-D15002D97687}</ProjectGuid>
+    <ProjectGuid>{C3452263-760E-400B-98EF-D4F2AE70CCBF}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
@@ -41,34 +41,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
-    <ClCompile>
-      <PreprocessorDefinitions>BE_ID_NAMES_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
-    <ClCompile>
-      <PreprocessorDefinitions>BE_ID_NAMES_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-  </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src-idgen\format.cpp" />
-    <ClCompile Include="src-idgen\idgen.cpp" />
-    <ClCompile Include="src-idgen\idgen_app.cpp" />
-    <ClCompile Include="src-idgen\mode.cpp" />
-    <ClCompile Include="src-idgen\type.cpp" />
+    <ClInclude Include="src-sizeof\size_of_type.hpp" />
+    <ClInclude Include="src-sizeof\version.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src-idgen\format.hpp" />
-    <ClInclude Include="src-idgen\idgen_app.hpp" />
-    <ClInclude Include="src-idgen\mode.hpp" />
-    <ClInclude Include="src-idgen\type.hpp" />
-    <ClInclude Include="src-idgen\version.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="meta\idgen\format.lua" />
-    <None Include="meta\idgen\mode.lua" />
-    <None Include="meta\idgen\type.lua" />
+    <ClCompile Include="src-sizeof\sizeof.cpp" />
+    <ClCompile Include="src-sizeof\size_of_type.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

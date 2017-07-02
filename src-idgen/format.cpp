@@ -1,16 +1,19 @@
-#include "mode.hpp"
+#include "format.hpp"
+#include <ostream>
 
-/*!! include 'mode' !! 47 */
+/*!! include 'idgen/format' !! 51 */
 /* ################# !! GENERATED CODE -- DO NOT MODIFY !! ################# */
 
 namespace be::idgen {
 
 ///////////////////////////////////////////////////////////////////////////////
-bool is_valid(Mode constant) noexcept {
+bool is_valid(Format constant) noexcept {
    switch (constant) {
-      case Mode::fnv0:
-      case Mode::fnv1:
-      case Mode::fnv1a:
+      case Format::standard:
+      case Format::canonical:
+      case Format::tab:
+      case Format::json:
+      case Format::xml:
          return true;
       default:
          return false;
@@ -18,25 +21,27 @@ bool is_valid(Mode constant) noexcept {
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-const char* mode_name(Mode constant) noexcept {
+const char* format_name(Format constant) noexcept {
    switch (constant) {
-      case Mode::fnv0:  return "fnv0";
-      case Mode::fnv1:  return "fnv1";
-      case Mode::fnv1a: return "fnv1a";
+      case Format::standard:  return "standard";
+      case Format::canonical: return "canonical";
+      case Format::tab:       return "tab";
+      case Format::json:      return "json";
+      case Format::xml:       return "xml";
       default:
          return "?";
    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-std::array<const Mode, 3> mode_values() noexcept {
-   return ::be::EnumTraits<Mode>::values<>();
+std::array<const Format, 5> format_values() noexcept {
+   return ::be::EnumTraits<Format>::values<>();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-std::ostream& operator<<(std::ostream& os, Mode constant) {
+std::ostream& operator<<(std::ostream& os, Format constant) {
    if (is_valid(constant)) {
-      os << mode_name(constant);
+      os << format_name(constant);
    } else {
       os << static_cast<I64>(static_cast<U8>(constant));
    }

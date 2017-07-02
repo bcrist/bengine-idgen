@@ -4,7 +4,7 @@
 
 #include <be/core/enum_traits.hpp>
 
-/*!! include 'format' !! 54 */
+/*!! include 'idgen/format' !! 54 */
 /* ################# !! GENERATED CODE -- DO NOT MODIFY !! ################# */
 
 namespace be::idgen {

@@ -1,7 +1,7 @@
 #include "type.hpp"
 #include <ostream>
 
-/*!! include 'type' !! 51 */
+/*!! include 'idgen/type' !! 51 */
 /* ################# !! GENERATED CODE -- DO NOT MODIFY !! ################# */
 
 namespace be::idgen {

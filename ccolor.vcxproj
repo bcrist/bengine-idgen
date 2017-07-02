@@ -11,10 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>idgen</ProjectName>
-    <RootNamespace>idgen</RootNamespace>
+    <ProjectName>ccolor</ProjectName>
+    <RootNamespace>ccolor</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
-    <ProjectGuid>{F0644067-51CA-447F-BD18-D15002D97687}</ProjectGuid>
+    <ProjectGuid>{ECE168DC-AAD3-416E-9977-27379072E506}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
@@ -41,34 +41,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
-    <ClCompile>
-      <PreprocessorDefinitions>BE_ID_NAMES_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
-    <ClCompile>
-      <PreprocessorDefinitions>BE_ID_NAMES_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-  </ItemDefinitionGroup>
+  <ItemDefinitionGroup />
   <ItemGroup>
-    <ClCompile Include="src-idgen\format.cpp" />
-    <ClCompile Include="src-idgen\idgen.cpp" />
-    <ClCompile Include="src-idgen\idgen_app.cpp" />
-    <ClCompile Include="src-idgen\mode.cpp" />
-    <ClCompile Include="src-idgen\type.cpp" />
+    <ClCompile Include="src-ccolor\ccolor.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src-idgen\format.hpp" />
-    <ClInclude Include="src-idgen\idgen_app.hpp" />
-    <ClInclude Include="src-idgen\mode.hpp" />
-    <ClInclude Include="src-idgen\type.hpp" />
-    <ClInclude Include="src-idgen\version.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="meta\idgen\format.lua" />
-    <None Include="meta\idgen\mode.lua" />
-    <None Include="meta\idgen\type.lua" />
+    <ClInclude Include="src-ccolor\version.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

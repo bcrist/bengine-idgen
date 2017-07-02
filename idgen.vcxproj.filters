@@ -14,47 +14,47 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\version.hpp">
+    <ClInclude Include="src-idgen\version.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\idgen_app.hpp">
+    <ClInclude Include="src-idgen\idgen_app.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\format.hpp">
+    <ClInclude Include="src-idgen\format.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\mode.hpp">
+    <ClInclude Include="src-idgen\mode.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\type.hpp">
+    <ClInclude Include="src-idgen\type.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\idgen_app.cpp">
+    <ClCompile Include="src-idgen\idgen_app.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\idgen.cpp">
+    <ClCompile Include="src-idgen\idgen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\format.cpp">
+    <ClCompile Include="src-idgen\format.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\mode.cpp">
+    <ClCompile Include="src-idgen\mode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\type.cpp">
+    <ClCompile Include="src-idgen\type.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="meta\mode.lua">
+    <None Include="meta\idgen\mode.lua">
       <Filter>Meta-Source Files</Filter>
     </None>
-    <None Include="meta\format.lua">
+    <None Include="meta\idgen\format.lua">
       <Filter>Meta-Source Files</Filter>
     </None>
-    <None Include="meta\type.lua">
+    <None Include="meta\idgen\type.lua">
       <Filter>Meta-Source Files</Filter>
     </None>
   </ItemGroup>

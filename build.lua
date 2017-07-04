@@ -1,6 +1,7 @@
 tool 'tools-misc' {
    app 'idgen' {
       icon 'icon/bengine-warm.ico',
+      limp_src 'src-idgen/*.hpp',
       src 'src-idgen/*.cpp',
       link_project {
          'core',
@@ -10,6 +11,7 @@ tool 'tools-misc' {
    },
    app 'sizeof' {
       icon 'icon/bengine-warm.ico',
+      limp_src 'src-sizeof/*.hpp',
       src 'src-sizeof/*.cpp',
       link_project {
          'core',
@@ -23,6 +25,7 @@ tool 'tools-misc' {
          disabled
       },
       icon 'icon/bengine-warm.ico',
+      limp_src 'src-ccolor/*.hpp',
       src 'src-ccolor/*.cpp',
       link_project {
          'core',
@@ -34,6 +37,7 @@ tool 'tools-misc' {
          disabled
       },
       icon 'icon/bengine-warm.ico',
+      limp_src 'src-wedo/*.hpp',
       src 'src-wedo/*.cpp',
       require_admin
    }

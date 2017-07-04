@@ -2,6 +2,7 @@
 #include "version.hpp"
 #include <be/core/version.hpp>
 #include <be/core/byte_order.hpp>
+#include <be/core/log_exception.hpp>
 #include <be/util/fnv.hpp>
 #include <be/util/base64_encode.hpp>
 #include <be/util/util_fs_autolink.hpp>
@@ -186,8 +187,11 @@ IdGenApp::IdGenApp(int argc, char** argv) {
          (param({ }, { "sep", "separator" }, "X", separator_)
             .desc("Specifies a string that should be inserted between each value that is output."))
          
-         (numeric_param({ }, { "basis" }, "X", basis_, [this]() { use_basis_ = true; })
-            .desc("Specifies a non-standard basis value (The value given to an empty string)"))
+         (numeric_param({ }, { "basis" }, "X", basis_, [this](U64 basis) {
+               use_basis_ = true;
+               return basis;
+            }).default_value("0")
+              .desc("Specifies a non-standard basis value (The value given to an empty string)"))
 
          (flag({ }, { "fnv-1a" }, mode_, Mode::fnv1a)
             .desc("Use the FNV-1a algorithm (default)."))
@@ -289,28 +293,25 @@ IdGenApp::IdGenApp(int argc, char** argv) {
 
    } catch (const cli::OptionError& e) {
       status_ = 2;
-      be_error() << S(e.what())
-         & attr(ids::log_attr_index) << e.raw_position()
-         & attr(ids::log_attr_argument) << S(e.argument())
-         & attr(ids::log_attr_option) << S(e.option())
-         | default_log();
+      cli::log_exception(e, default_log());
    } catch (const cli::ArgumentError& e) {
       status_ = 2;
-      be_error() << S(e.what())
-         & attr(ids::log_attr_index) << e.raw_position()
-         & attr(ids::log_attr_argument) << S(e.argument())
-         | default_log();
+      cli::log_exception(e, default_log());
    } catch (const FatalTrace& e) {
       status_ = 2;
-      be_error() << "Fatal error while parsing command line!"
-         & attr(ids::log_attr_message) << S(e.what())
-         & attr(ids::log_attr_trace) << StackTrace(e.trace())
-         | default_log();
+      log_exception(e, default_log());
+   } catch (const RecoverableTrace& e) {
+      status_ = 2;
+      log_exception(e, default_log());
+   } catch (const fs::filesystem_error& e) {
+      status_ = 2;
+      log_exception(e, default_log());
+   } catch (const std::system_error& e) {
+      status_ = 2;
+      log_exception(e, default_log());
    } catch (const std::exception& e) {
       status_ = 2;
-      be_error() << "Unexpected exception parsing command line!"
-         & attr(ids::log_attr_message) << S(e.what())
-         | default_log();
+      log_exception(e, default_log());
    }
 }
 

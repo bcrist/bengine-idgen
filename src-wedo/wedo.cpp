@@ -13,11 +13,11 @@ int main() {
       return 0;
    }
 
-   ::STARTUPINFOW si; 
+   ::STARTUPINFOW si;
    ::PROCESS_INFORMATION pi;
-   std::memset(&si, 0, sizeof(si)); 
-   std::memset(&pi, 0, sizeof(pi)); 
-   si.cb = sizeof(si); 
+   std::memset(&si, 0, sizeof(si));
+   std::memset(&pi, 0, sizeof(pi));
+   si.cb = sizeof(si);
 
    ::DWORD exit;
 
@@ -37,7 +37,7 @@ std::wstring parse_command_line(const std::wstring& str) {
    /*2n backslashes followed by a quotation mark produce n backslashes followed by a quotation mark.
    (2n) + 1 backslashes followed by a quotation mark again produce n backslashes followed by a quotation mark.
    n backslashes not followed by a quotation mark simply produce n backslashes.
-   Important  
+   Important
    CommandLineToArgvW treats whitespace outside of quotation marks as argument delimiters. However, if lpCmdLine starts with any amount of whitespace, CommandLineToArgvW will consider the first argument to be an empty string. Excess whitespace at the end of lpCmdLine is ignored.*/
 
    enum State {

@@ -109,7 +109,7 @@ void sizeof_main(SizeOfType& size_of_type) {
    sz(bvec2); sz(bvec3); sz(bvec4); br;
    sz(mat2); sz(mat2x3); sz(mat2x4); sz(mat3); sz(mat3x4); sz(mat4); br;
    sz(dmat2); sz(dmat2x3); sz(dmat2x4); sz(dmat3); sz(dmat3x4); sz(dmat4);
-   
+
    section;
 
    sz(array<char, 0>);
@@ -150,7 +150,7 @@ void sizeof_main(SizeOfType& size_of_type) {
    sz(boost::container::stable_vector<int>);
    sz(priority_queue<int>);
    br;
-   
+
    sz(deque<int>);
    sz(boost::container::deque<int>);
    sz(boost::circular_buffer<int>);
@@ -158,18 +158,18 @@ void sizeof_main(SizeOfType& size_of_type) {
    sz(stack<int>);
    sz(queue<int>);
    br;
-   
+
    sz(list<int>); sz(boost::container::list<int>); br;
    sz(forward_list<int>); sz(boost::container::slist<int>);
    bsz(util::ChunkedList<int, std::allocator<int>, 16, 7, 1>);
    bsz(util::ChunkedList<int, std::allocator<int>, 16, 7, 2>);
    bsz(util::ChunkedList<int, std::allocator<int>, 16, 7, 6>);
-   
+
    hr;
 
    sz(set<int>); sz(boost::container::set<int>); sz(boost::container::flat_set<int>); br;
    sz(multiset<int>); sz(boost::container::multiset<int>); sz(boost::container::flat_multiset<int>); br;
-   
+
    sz(map<int, int>); sz(boost::container::map<int, int>); sz(boost::container::flat_map<int, int>); br;
    sz(multimap<int, int>); sz(boost::container::multimap<int, int>); sz(boost::container::flat_multimap<int, int>); br;
 
@@ -180,7 +180,7 @@ void sizeof_main(SizeOfType& size_of_type) {
    sz(unordered_multimap<int, int>); sz(boost::unordered_multimap<int, int>);
 
    section;
-   
+
    bszn(TU);
    bsz(S);
    szn(Path);

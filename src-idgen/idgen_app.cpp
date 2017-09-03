@@ -56,7 +56,7 @@ S escape_json_string(const S& input) {
          case '\n':  out.append("\\n"); break;
          case '\b':  out.append("\\b"); break;
          case '\f':  out.append("\\f"); break;
-         
+
          default:
             out.append("\\u00");
             out.append(1, "0123456789ABCDEF"[(c >> 4) & 0xF]);
@@ -184,10 +184,10 @@ IdGenApp::IdGenApp(int argc, char** argv) {
 
          (enum_param({ "t" }, { "type" }, "X", type_)
             .desc("Specifies the type of hash string to generate."))
-         
+
          (param({ }, { "sep", "separator" }, "X", separator_)
             .desc("Specifies a string that should be inserted between each value that is output."))
-         
+
          (numeric_param({ }, { "basis" }, "X", basis_, [this](U64 basis) {
                use_basis_ = true;
                return basis;
@@ -449,7 +449,7 @@ void IdGenApp::process_(const S& input) {
             serialized.append(1, "0123456789ABCDEF"[digit]);
          }
          break;
-         
+
       case Type::signed_dec: {
          std::ostringstream oss;
          oss << std::dec << static_cast<I64>(hash);
@@ -479,7 +479,7 @@ void IdGenApp::process_(const S& input) {
          break;
    }
 
-   
+
    switch (format_) {
       case Format::canonical:
          std::cout << serialized;

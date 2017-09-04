@@ -292,25 +292,25 @@ IdGenApp::IdGenApp(int argc, char** argv) {
 
    } catch (const cli::OptionError& e) {
       status_ = 2;
-      cli::log_exception(e, default_log());
+      log_exception(e);
    } catch (const cli::ArgumentError& e) {
       status_ = 2;
-      cli::log_exception(e, default_log());
+      log_exception(e);
    } catch (const FatalTrace& e) {
       status_ = 2;
-      log_exception(e, default_log());
+      log_exception(e);
    } catch (const RecoverableTrace& e) {
       status_ = 2;
-      log_exception(e, default_log());
+      log_exception(e);
    } catch (const fs::filesystem_error& e) {
       status_ = 2;
-      log_exception(e, default_log());
+      log_exception(e);
    } catch (const std::system_error& e) {
       status_ = 2;
-      log_exception(e, default_log());
+      log_exception(e);
    } catch (const std::exception& e) {
       status_ = 2;
-      log_exception(e, default_log());
+      log_exception(e);
    }
 }
 

@@ -16,8 +16,8 @@ tool 'tools-misc' {
       link_project {
          'core',
          'core-id',
-         'util',
-         'gfx'
+         'util'
+         --, 'gfx'
       }
    },
    app 'ccolor' {

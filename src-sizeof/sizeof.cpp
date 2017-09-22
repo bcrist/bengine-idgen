@@ -6,7 +6,6 @@
 #include <be/core/filesystem.hpp>
 #include <be/core/time.hpp>
 #include <be/core/extents.hpp>
-#include <be/gfx/tex/texture.hpp>
 
 #include <array>
 #include <vector>
@@ -202,10 +201,10 @@ void sizeof_main(SizeOfType& size_of_type) {
    bszn(be::ibox);
    br;
 
-   bsz(be::gfx::tex::TextureStorage);
-   bsz(be::gfx::tex::ImageFormat);
-   bsz(be::gfx::tex::TextureView);
-   bsz(be::gfx::tex::ImageView);
+   // bsz(be::gfx::tex::TextureStorage);
+   // bsz(be::gfx::tex::ImageFormat);
+   // bsz(be::gfx::tex::TextureView);
+   // bsz(be::gfx::tex::ImageView);
 };
 
 } // be

@@ -5,8 +5,6 @@
 #include <be/core/log_exception.hpp>
 #include <be/util/fnv.hpp>
 #include <be/util/base64_encode.hpp>
-#include <be/util/util_fs_autolink.hpp>
-#include <be/util/util_prng_autolink.hpp>
 #include <be/cli/cli.hpp>
 #include <iostream>
 #include <sstream>

@@ -6,7 +6,9 @@ tool 'tools-misc' {
       link_project {
          'core',
          'core-id-with-names',
-         'util-fs'
+         'util-fs',
+         'util-string',
+         'cli',
       }
    },
    app 'sizeof' {

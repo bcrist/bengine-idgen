@@ -96,7 +96,7 @@ void SizeOfType::size(S name, LogColor name_color, bool show_type_name_alias) {
    }
    std::cout << setcolor(name_color) << name;
    if (show_type_name_alias) {
-      S tname = type_name<T>();
+      SV tname = type_name<T>();
       if (name != tname) {
          std::cout << dark_gray << " = " << tname;
       }

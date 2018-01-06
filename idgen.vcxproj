@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectName>idgen</ProjectName>
     <RootNamespace>idgen</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
     <ProjectGuid>{F0644067-51CA-447F-BD18-D15002D97687}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

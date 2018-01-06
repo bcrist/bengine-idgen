@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectName>ccolor</ProjectName>
     <RootNamespace>ccolor</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
     <ProjectGuid>{ECE168DC-AAD3-416E-9977-27379072E506}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
